@@ -1,0 +1,25 @@
+﻿
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DBFriendsApp.Views.DBFriendPage"
+    BackgroundColor="#ADD8E6">
+    <StackLayout>
+        <Label Text="Имя"/>
+        <Entry Text="{Binding Name}"/>
+        <Label Text="Email"/>
+        <Entry Text="{Binding Email}"/>
+        <Label Text="Телефон"/>
+        <Entry Text="{Binding Phone}"/>
+        <Label Text="День рождения" />
+        <DatePicker Date="{Binding Birthday}" Format="dd.MM.yyyy" />
+        <Button Text="SMS" Command="{Binding SendSmsCommand}"  />
+        <Button Text="Email" Command="{Binding SendEmailCommand}"/>
+        <Button Text="Call" Command="{Binding CallPhoneCommand}" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Сохранить" Clicked="SaveFriend"/>
+            <Button Text="Удалить" Clicked="DeleteFriend"/>
+            <Button Text="Отмена" Clicked="Cancel"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

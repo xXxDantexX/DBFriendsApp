@@ -1,0 +1,34 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DBFriendsApp.Views.DBListPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <GradientStopCollection x:Key="myGradientStops">
+                <GradientStop Color="LightBlue" Offset="0.0" />
+                <GradientStop Color="LightGreen" Offset="1.0" />
+            </GradientStopCollection>
+            <LinearGradientBrush x:Key="myGradientBrush"
+                                 StartPoint="0,0"
+                                 EndPoint="1,1"
+                                 GradientStops="{StaticResource myGradientStops}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Background="{StaticResource myGradientBrush}">
+        <Label Text="Список Друзей" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <ListView x:Name="friendsList" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" FontSize="Medium"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Добавить" Clicked="CreateFriend"/>
+</StackLayout>
+</ContentPage>
